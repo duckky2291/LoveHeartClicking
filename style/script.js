@@ -1,30 +1,32 @@
 const music = document.getElementById("bg-music");
 
 const playMusicOnce = () => {
-music.play().catch(e => console.log("Music play blocked:", e));
-window.removeEventListener("click", playMusicOnce);
+  music.play().catch(e => console.log("Music play blocked:", e));
+  window.removeEventListener("click", playMusicOnce);
 };
 
 window.addEventListener("click", playMusicOnce);
 
 const messages = [
-  "Dr.Gifter",
-  "Em là vũ trụ của anh",
-  "Tình yêu bất tận giữa các vì sao",
-  "Em là ngôi sao sáng nhất",
-  "Anh tỏa sáng là vì em",
-  "Em thật tỏa sáng trên bầu trời của anh"
+  "Đào Đức yêu vk",
+  "You're my universe",
+  "Vk yêu dấu",
+  "Vk xinh đẹp nhất",
+  "Ck yêu vk nhắm",
+  "Em bé yêu của ck",
+  "Vk iu ơiiiii",
+  "Sư tử Hà Đông của ck ơiiiii",
 ];
 const fallingTexts = [];
 
 function createFallingText() {
   const text = messages[Math.floor(Math.random() * messages.length)];
-  const fontSize = Math.random() * 10 + 10;
+  const fontSize = Math.random() * 10 + 20;
 
   ctx.font = `bold ${fontSize}px Pacifico`;
   const textWidth = ctx.measureText(text).width;
 
-  const x = Math.random() * (width - textWidth); 
+  const x = Math.random() * (width - textWidth);
 
   fallingTexts.push({
     text,
@@ -33,7 +35,7 @@ function createFallingText() {
     speed: Math.random() * 2 + 2,
     alpha: 1,
     fontSize,
-    hue: Math.random() * 360
+    hue: Math.random() * 360,
   });
 }
 
@@ -55,7 +57,7 @@ let heartScale = Math.min(width, height) * 0.015;
 
 function heartShape(t, scale = 1) {
   const x = 16 * Math.pow(Math.sin(t), 3);
-  const y = -(13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t));
+  const y = -(13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
   return { x: x * scale, y: y * scale };
 }
 
@@ -144,7 +146,7 @@ function animate() {
   });
 
 
-  
+
   meteors.forEach((m, i) => {
     const dx = Math.cos(m.angle) * m.length;
     const dy = Math.sin(m.angle) * m.length;
@@ -197,7 +199,7 @@ function animate() {
       } else {
         star.mode = 'heart';
       }
-    } 
+    }
     else {
       const deltaX = star.originalX - centerX;
       const deltaY = star.originalY - centerY;
