@@ -21,7 +21,7 @@ const fallingTexts = [];
 
 function createFallingText() {
   const text = messages[Math.floor(Math.random() * messages.length)];
-  const fontSize = Math.random() * 10 + 20;
+  const fontSize = Math.random() * 10 + 10;
 
   ctx.font = `bold ${fontSize}px Pacifico`;
   const textWidth = ctx.measureText(text).width;
